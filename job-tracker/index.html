@@ -7,29 +7,51 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <main>
-      <section class="job-form">
-        <h1>Job Tracker</h1>
-          <form id="jobForm">
+    <!-- App Headers -->
+    <header class="app-header">
+      <h2>Applicant Tracker</h2>
+      <button id="openFormBtn" class="btn-primary">+ Add Applicant</button>
+    </header>
+
+    <!-- Status Filter Bar -->
+    <nav class="status-filter">
+      <button data-status="all" class="filter-btn active">All</button>
+      <button data-status="applied" class="filter-btn">Applied</button>
+      <button data-status="interview" class="filter-btn">Interview</button>
+      <button data-status="offer" class="filter-btn">Offer</button>
+      <button data-status="rejected" class="filter-btn">Rejected</button>
+    </nav>
+
+    <!-- Cards Section -->
+     <main class="app-container">
+      <section id="cardContainer" class="card-grid">
+        <!-- Dynamic job/applicant cards will render here via JS -->
+      </section>
+     </main>
+
+     <!-- Applicant Model -->
+      <div id="formModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Add Applicant</h2>
+          <form id="applicationForm">
+            <input type="text" id="name" placeholder="Full Name" required />
+            <input type="text" id="position" placeholder="Job Title" required />
             <input type="text" id="company" placeholder="Company Name" required />
-            <input type="text" id="title" placeholder="Job Title" required />
             <select id="status">
               <option value="applied">Applied</option>
               <option value="interview">Interview</option>
-              <option value="rejected">Rejected</option>
-              <option value="offer">Offer</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
             </select>
             <input type="date" id="date" required />
-            <button type="submit">Add Job</button>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Save</button>
+              <button type="button" id="closeFormBtn" class="btn-secondary">Cancel</button>
+            </div>
           </form>
-      </section>
-
-      <section class="job-list">
-        <h2>Job Applications</h2>
-        <div id="jobsContainer"></div>
-      </section>
-    </main>
-
+        </div> 
+      </div>
+      
     <script type="module" src="/main.js"></script>
   </body>
 </html>
